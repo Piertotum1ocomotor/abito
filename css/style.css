@@ -4,11 +4,17 @@ body {
   color: #0a143a; /* цвет текста */
 }
 
-.header {
+.container {
   max-width: 1146px;
   margin: auto; /* автом выравнивание по середине */
-  padding-top: 30px;
 }
+
+.header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 12px;
+}
+
 .navbar {
   display: flex; /* делаем гибкий блок*/
   align-items: center; /* выравниваем по вертикали по центру */
@@ -31,22 +37,23 @@ body {
 }
 .menu-link {
   text-decoration: none; /* отключаем подчеркивание ссылок */
-  color: inherit; /* берет цвет текста как у родители (боди) */
+  color: inherit; /* берет цвет текста как у родителя */
 }
 .button {
   text-decoration: none;
   display: inline-block;
-  padding: 10px 15px; /* сверху и снизу 10 пикс, справа и слева 15 пикс */
+  padding: 10px 15px;
   cursor: pointer;
 }
 .button-link {
   color: inherit;
 }
 .button-primary {
-  background: #256eeb; /* фон */
-  border-radius: 5px; /* скругление углов */
+  background: #256eeb;
+  border-radius: 5px;
   color: white;
 }
+
 .search-panel {
   height: 50px;
   background: #256eeb;
@@ -55,10 +62,10 @@ body {
   padding: 3px;
 }
 .search-input {
-  flex-grow: 1; /* растягивается на все свободное место */
+  flex-grow: 1;
   background: white;
   border-radius: 5px;
-  border: none; /* отключаем обводку */
+  border: none;
   padding-left: 22px;
   padding-right: 22px;
 }
@@ -73,4 +80,136 @@ body {
 }
 .search-button-text {
   margin-left: 5px;
+}
+
+.page-content {
+  display: grid;
+  grid-template-columns: 9fr 3fr;
+  grid-column-gap: 30px;
+}
+
+.card-image {
+  border-radius: 10px;
+  width: 264px;
+  height: 178px;
+  object-fit: cover;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card:not(:nth-child(3n)) {
+  margin-right: 20px;
+}
+
+/* --------------------------- */
+/*  Фикс для длинных заголовков */
+/* --------------------------- */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 0; /* FIX */
+}
+
+.card-header a {
+  flex: 1; /* FIX */
+  min-width: 0; /* FIX */
+}
+
+.card-title {
+  font-size: 16px;
+  line-height: 19px;
+  color: #256eeb;
+  margin-top: 12px;
+  margin-bottom: 5px;
+
+  /* FIX: перенос длинных названий */
+  word-break: break-word;
+  overflow-wrap: break-word;
+
+  /* FIX: ограничение 2 строками */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.like {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.card-price {
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.card-text {
+  font-size: 14px;
+  line-height: 16px;
+  color: #c4c4c4;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.sidebar .page-title {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.service {
+  margin-bottom: 25px;
+}
+
+.service-title {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+
+.service-text {
+  font-size: 14px;
+  line-height: 16px;
+  max-width: 217px;
+}
+
+.footer-text {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 16px;
+  color: #c4c4c4;
+  margin-bottom: 5px;
+}
+
+.footer-menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-bottom: 16px;
+}
+
+.footer-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 5px;
 }
